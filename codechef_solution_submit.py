@@ -1,5 +1,8 @@
+#!/usr/bin/env python3
+
 from selenium import webdriver
 import time
+import os
 from os import environ
 import sys
 
@@ -30,8 +33,8 @@ def submit_solution(driver, problem_code, full_solution_path):
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Retry : python3 xxx.py xxx.cpp /abc/def/.../xxx.cpp")
+        print("Retry : [./]xxx.py problem_code xxx.cpp")
     driver = webdriver.Chrome('/Users/ayushanshul07/ayush/selenium_practice/chromedriver')
     login_to_codechef(driver)
-    submit_solution(driver,sys.argv[1],sys.argv[2])
+    submit_solution(driver,sys.argv[1],os.getcwd()+'/'+sys.argv[2])
 
