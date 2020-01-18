@@ -1,8 +1,4 @@
 #!/usr/bin/env python
-# coding: utf-8
-
-# In[19]:
-
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -12,15 +8,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
 
 
-# In[32]:
-
-
 driver = webdriver.Chrome('/Users/ayushanshul07/ayush/selenium_practice/chromedriver')
 driver.get('https://play2048.co')
-
-
-# In[ ]:
-
 
 count = 0
 while True:
@@ -40,10 +29,3 @@ while True:
         continue
 print('Your final score is: ' + driver.find_element_by_xpath('/html/body/div[3]/div[1]/div/div[1]').text)
 driver.quit()
-
-
-# In[ ]:
-
-
-
-
