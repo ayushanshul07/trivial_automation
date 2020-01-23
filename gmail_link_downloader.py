@@ -66,11 +66,11 @@ folder_to_download        = '$FOLDER_TO_DOWNLOAD_FILE_IN'
 allow_from_mail           = '$MAIL_TO_ALLOW'
 
 service = get_service(credentials_json_location) 
-message_list = search_messages(service, "me", "from:" + allow_from_mail + "is:unread subject:Download")
+message_list = search_messages(service, "me", "from:" + allow_from_mail + " is:unread subject:Download")
 if len(message_list) > 0:
     new_labels = {'removeLabelIds': ['UNREAD'], 'addLabelIds': []}
     url = get_and_read_message(service,"me",message_list[0],new_labels).strip()
-    filename =  + message_list[0] + url.split('/')[-1]
+    filename = folder_to_download + message_list[0] + url.split('/')[-1]
     response = requests.get(url)
     with open(filename, 'wb') as f:
         f.write(response.content)
